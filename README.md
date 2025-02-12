@@ -91,7 +91,7 @@ uvicorn main:app
 
 ### Health Check
 
-- `GET /healthcheck` - Check API status
+- `GET /healthcheck` - Checks API status
 
 ## Book Schema
 
@@ -140,6 +140,11 @@ The API includes proper error handling for:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Deployment
+
+This 
+
 
 ## Support
 
