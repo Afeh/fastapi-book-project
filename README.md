@@ -141,9 +141,34 @@ The API includes proper error handling for:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+
 ## Deployment
 
-This 
+The project is configured for deployment on DigitalOcean with Nginx. The deployment process is automated using GitHub Actions.
+
+1. **Set up your DigitalOcean server** and ensure you have the necessary SSH access.
+   - Create a Droplet on Digital Ocean
+   - Ensure the server has Python, Nginx, and Git installed.
+   - Note the server's IP address, username (usually root), and password
+
+3. **Configure GitHub Secrets** with your DigitalOcean server details:
+   * Go to your Github repo
+   * Navigate to **Settings** > **Secrests and variables** > **Actions**
+   - `DROPLET_IP`: The IP address of your DigitalOcean droplet.
+   - `DROPLET_USER`: The username for your droplet (e.g., root).
+   - `DROPLET_PASSWORD`: The password for your droplet.
+
+
+5. **Push to the `main` branch** to trigger the deployment workflow.
+* The GitHub Actions workflow will automatically trigger on a push to the main branch
+* The workflow will:
+    - SSH into your DigitalOcean droplet using the provided IP, username, and password.
+
+    - Pull the latest changes from the main branch.
+
+    - Install dependencies using pip.
+
+    - Restart the FastAPI service using systemctl.
 
 
 ## Support
